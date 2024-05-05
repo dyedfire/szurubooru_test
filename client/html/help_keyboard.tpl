@@ -41,7 +41,7 @@ shortcuts:</p>
 
         <tr>
             <td><kbd>Delete</kbd></td>
-            <td>Delete post (while in edit mode)</td>
+            <td>(In edit mode) delete post</td>
         </tr>
     </tbody>
 </table>

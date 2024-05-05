@@ -37,8 +37,7 @@ class Executor:
         self.parser = parser.Parser()
 
     def get_around(
-        self, query_text: str, entity_id: int
-    ) -> Tuple[model.Base, model.Base]:
+        self, query_text: str, entity_id: int) -> Tuple[model.Base, model.Base, model.Base]:
         search_query = self.parser.parse(query_text)
         self.config.on_search_query_parsed(search_query)
         filter_query = self.config.create_around_query().options(
