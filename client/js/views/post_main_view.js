@@ -113,7 +113,7 @@ class PostMainView {
                     showNextImage();
                 }
             }
-        );
+        )
     }
 
     _installSidebar(ctx) {

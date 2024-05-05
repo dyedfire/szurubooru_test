@@ -24,6 +24,7 @@ class PostList extends AbstractList {
                     offset: offset,
                     limit: limit,
                     fields: fields.join(","),
+                    cachenumber: cachenumber,
                 })
             )
             .then((response) => {

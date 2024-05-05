@@ -62,6 +62,7 @@ class Executor:
         return (
             prev_filter_query.one_or_none(),
             next_filter_query.one_or_none(),
+            random_entities[0] if random_entities else None
         )
 
     def get_around_and_serialize(
@@ -94,7 +95,7 @@ class Executor:
                 disable_eager_loads = True
 
         key = (id(self.config), hash(search_query), offset, limit)
-        if cache.has(key):
+        if not disable_eager_loads and cache.has(key):
             return cache.get(key)
 
         filter_query = self.config.create_filter_query(disable_eager_loads)

@@ -75,6 +75,8 @@ RUN apk --no-cache add \
  && addgroup -g ${PGID} app \
  && adduser -SDH -h /opt/app -g '' -G app -u ${PUID} app \
  && chown -R app:app /opt/app /data
+ 
+RUN chmod +x /opt/app/docker-start.sh
 
 USER app
 CMD ["/opt/app/docker-start.sh"]

@@ -316,7 +316,10 @@ class PostsHeaderView extends events.EventTarget {
 
     _navigate() {
         this._autoCompleteControl.hide();
-        let parameters = { query: this._queryInputNode.value };
+        let parameters = {
+            query: this._queryInputNode.value,
+            cachenumber: this._ctx.parameters.cachenumber,
+        };
 
         // convert falsy values to an empty string "" so that we can correctly compare with the current query
         const prevQuery = this._ctx.parameters.query

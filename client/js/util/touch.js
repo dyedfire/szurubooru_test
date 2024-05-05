@@ -40,7 +40,7 @@ function handleTouchEnd(handler) {
         case direction.NONE:
             return;
         case direction.LEFT:
-            handler._swipeLeftTask();
+            handler._swipeLeftTask(evt);
             break;
         case direction.RIGHT:
             handler._swipeRightTask();
