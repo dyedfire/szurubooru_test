@@ -60,7 +60,6 @@
                     </a>
                 <% } %>
             </article>
-            <% } %>
         </nav>
 
         <div class='sidebar-container'></div>
