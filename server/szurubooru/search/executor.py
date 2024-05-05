@@ -57,8 +57,11 @@ class Executor:
             filter_query.filter(self.config.id_column < entity_id)
             .order_by(None)
             .order_by(sa.func.abs(self.config.id_column - entity_id).asc())
-            .limit(1)
-        )
+            .limit(1))
+        # random post
+        if 'sort:random' not in query_text:
+            query_text = query_text + ' sort:random'
+        count, random_entities = self.execute(query_text, 0, 1)
         return (
             prev_filter_query.one_or_none(),
             next_filter_query.one_or_none(),
@@ -77,6 +80,7 @@ class Executor:
         return {
             "prev": serializer(entities[0]),
             "next": serializer(entities[1]),
+            'random': serializer(entities[2]),
         }
 
     def execute(
